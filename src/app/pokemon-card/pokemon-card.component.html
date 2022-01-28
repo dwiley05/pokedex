@@ -28,9 +28,16 @@
       <mat-form-field class="mt-3" appearance="fill">
         <mat-label>Choose a move</mat-label>
         <mat-select>
-          <mat-option value="option1" *ngFor="let moves of pokemon.moves">{{moves.move.name | titlecase}}</mat-option>
+          <mat-option value="option1" *ngFor="let moves of pokemon.moves">{{
+            moves.move.name | titlecase
+          }}</mat-option>
         </mat-select>
       </mat-form-field>
+    </div>
+    <div>
+      <button mat-flat-button class="back-button" [routerLink]="'/pokemon'">
+        Back to Pokemon
+      </button>
     </div>
   </div>
 </ng-container>

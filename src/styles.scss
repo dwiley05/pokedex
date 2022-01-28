@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,700");
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Montserrat";
+}
+
+.montserrat {
+  font-family: "Montserrat";
+  font-weight: 500;
+}
+
+.poke-font {
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+  font-family: "pokemon-font", monospace;
+}

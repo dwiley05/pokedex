@@ -1,0 +1,18 @@
+mat-toolbar {
+  background-color: #3c5aa6;
+  color: #e4000f;
+  font-family: "Montserrat";
+  font-size: 2em;
+}
+
+button {
+  color: white;
+  &:hover {
+    background-image: none;
+    background-color: darkblue;
+  }
+}
+
+.home {
+  cursor: pointer;
+}

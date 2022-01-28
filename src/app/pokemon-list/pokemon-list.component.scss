@@ -1,0 +1,13 @@
+table td {
+  font-size: 1.5em;
+}
+table.mat-table {
+  width: 100%;
+}
+
+.pokemon-td {
+  cursor: pointer;
+  &:hover {
+    color: red;
+  }
+}

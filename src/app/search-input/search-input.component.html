@@ -1,0 +1,32 @@
+<div (keyup.enter)="onSearch(searchInput.value)">
+  <mat-form-field class="example-form-field" appearance="fill">
+    <mat-label></mat-label>
+    <input matInput type="text" #searchInput [(ngModel)]="value" />
+    <button
+      *ngIf="value"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="value = ''; onSearch('')"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <button class="ms-4" mat-raised-button (click)="onSearch(searchInput.value)">
+    Search
+  </button>
+  <mat-checkbox
+    class="ms-4"
+    (change)="onCaughtCheck($event)"
+    [(ngModel)]="isCaught"
+  >
+    Caught
+  </mat-checkbox>
+  <mat-checkbox
+    class="ms-4"
+    (change)="onWishlistCheck($event)"
+    [(ngModel)]="isWishlist"
+  >
+    Wishlist
+  </mat-checkbox>
+</div>

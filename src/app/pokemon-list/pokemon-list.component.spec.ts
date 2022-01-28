@@ -1,5 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SearchInputComponent } from '../search-input/search-input.component';
 
 import { PokemonListComponent } from './pokemon-list.component';
 
@@ -9,8 +10,8 @@ describe('PokemonListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PokemonListComponent ],
-      providers: [HttpClientModule]
+      declarations: [ PokemonListComponent, SearchInputComponent ],
+      imports: [HttpClientModule]
     })
     .compileComponents();
   });
@@ -23,10 +24,5 @@ describe('PokemonListComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('should populate list_pokemon with pokemon', () => {
-    component.ngOnInit();
-    expect(component.pokemon).toBeDefined();
   });
 });

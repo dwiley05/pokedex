@@ -16,15 +16,23 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatCheckboxModule }from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
-
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LoadingComponent } from './loading/loading.component';
+import { LoadingService } from './loading/loading.service';
 
 @NgModule({
-  declarations: [AppComponent, PokemonListComponent, SearchInputComponent, HomeComponent, PokemonCardComponent],
+  declarations: [
+    AppComponent,
+    PokemonListComponent,
+    SearchInputComponent,
+    HomeComponent,
+    PokemonCardComponent,
+    LoadingComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -41,8 +49,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatCheckboxModule,
     MatCardModule,
     MatSelectModule,
+    MatProgressSpinnerModule,
   ],
-  providers: [],
+  providers: [LoadingService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

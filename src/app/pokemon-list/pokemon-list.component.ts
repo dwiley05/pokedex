@@ -29,7 +29,7 @@ export class PokemonListComponent implements OnInit {
   }
 
   loadPokemonList(): void {
-    this.pokemonStore.filterPokemon('').subscribe((res) => {
+    const loadPokemon = this.pokemonStore.filterPokemon('').subscribe((res) => {
       this.list_pokemon.data = res;
     });
   }

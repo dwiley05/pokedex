@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map, shareReplay, tap } from 'rxjs/operators';
 import { PokemonAPI, Pokemon } from '../interfaces/pokemon';
+import { LoadingService } from '../loading/loading.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,7 @@ export class PokemonStore {
   pokemon: Observable<Pokemon[]> = this.subject.asObservable();
   length: number;
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private loadingService: LoadingService) {
     this.loadPokemon();
   }
 
@@ -59,5 +60,8 @@ export class PokemonStore {
         tap((pokemon) => this.subject.next(pokemon)),
         shareReplay()
       );
+
+      this.loadingService.showLoaderUntilCompleted(this.pokemon)
+      .subscribe();
   }
 }

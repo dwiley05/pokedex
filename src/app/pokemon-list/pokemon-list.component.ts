@@ -48,30 +48,10 @@ export class PokemonListComponent implements OnInit {
 
   onCatchToggle(pokemon: Pokemon, event: any): void {
     if (event.checked) {
-      this.catchPokemon(pokemon);
+      this.pokemonStore.catchPokemon(pokemon);
     } else {
-      this.releasePokemon(pokemon);
+      this.pokemonStore.releasePokemon(pokemon);
     }
-  }
-
-  catchPokemon(pokemon: Pokemon): void {
-    this.pokemonStore.pokemon
-      .pipe(
-        map((pokemonList) => {
-          pokemonList[pokemonList.indexOf(pokemon)].caught = true;
-        })
-      )
-      .subscribe();
-  }
-
-  releasePokemon(pokemon: Pokemon): void {
-    this.pokemonStore.pokemon
-      .pipe(
-        map((pokemonList) => {
-          pokemonList[pokemonList.indexOf(pokemon)].caught = false;
-        })
-      )
-      .subscribe();
   }
 
   showFilteredPokemon(isCaught: boolean, isWishlist: boolean) {
@@ -95,29 +75,9 @@ export class PokemonListComponent implements OnInit {
 
   onWishlistToggle(pokemon: Pokemon, event: any): void {
     if (event.checked) {
-      this.wishlistPokemon(pokemon);
+      this.pokemonStore.wishlistPokemon(pokemon);
     } else {
-      this.unwishlistPokemon(pokemon);
+      this.pokemonStore.unwishlistPokemon(pokemon);
     }
-  }
-
-  wishlistPokemon(pokemon: Pokemon) {
-    this.pokemonStore.pokemon
-      .pipe(
-        map((pokemonList) => {
-          pokemonList[pokemonList.indexOf(pokemon)].wishlist = true;
-        })
-      )
-      .subscribe();
-  }
-
-  unwishlistPokemon(pokemon: Pokemon) {
-    this.pokemonStore.pokemon
-      .pipe(
-        map((pokemonList) => {
-          pokemonList[pokemonList.indexOf(pokemon)].wishlist = false;
-        })
-      )
-      .subscribe();
   }
 }

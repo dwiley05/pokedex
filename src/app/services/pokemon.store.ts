@@ -49,6 +49,48 @@ export class PokemonStore {
     return this.httpClient.get<Pokemon>(this.baseUrl + 'pokemon/' + pokemonName);
   }
 
+  catchPokemon(pokemon: Pokemon): void {
+    this.pokemon
+      .pipe(
+        map((pokemonList) => {
+          pokemonList[pokemonList.indexOf(pokemon)].caught = true;
+        })
+      )
+      .subscribe();
+  }
+
+  releasePokemon(pokemon: Pokemon): void {
+    this.pokemon
+      .pipe(
+        map((pokemonList) => {
+          pokemonList[pokemonList.indexOf(pokemon)].caught = false;
+        })
+      )
+      .subscribe();
+  }
+
+
+  wishlistPokemon(pokemon: Pokemon) {
+    this.pokemon
+      .pipe(
+        map((pokemonList) => {
+          pokemonList[pokemonList.indexOf(pokemon)].wishlist = true;
+        })
+      )
+      .subscribe();
+  }
+
+  unwishlistPokemon(pokemon: Pokemon) {
+    this.pokemon
+      .pipe(
+        map((pokemonList) => {
+          pokemonList[pokemonList.indexOf(pokemon)].wishlist = false;
+        })
+      )
+      .subscribe();
+  }
+
+
   private loadPokemon() {
     this.pokemon = this.httpClient
       .get<Pokemon[]>(this.baseUrl + 'pokemon?limit=1500')
